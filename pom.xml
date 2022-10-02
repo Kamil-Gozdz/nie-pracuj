@@ -82,9 +82,15 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <spring.profiles.active>local</spring.profiles.active>
+            </properties>
         </profile>
         <profile>
             <id>develop</id>
+            <properties>
+                <spring.profiles.active>develop</spring.profiles.active>
+            </properties>
         </profile>
     </profiles>
 </project>
