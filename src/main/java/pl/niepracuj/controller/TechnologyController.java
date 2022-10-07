@@ -3,9 +3,7 @@ package pl.niepracuj.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import pl.niepracuj.model.dto.CompanyDto;
 import pl.niepracuj.model.dto.TechnologyDto;
-import pl.niepracuj.service.company.CompanyService;
 import pl.niepracuj.service.technology.TechnologyService;
 
 import java.util.List;

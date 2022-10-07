@@ -5,14 +5,12 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class LevelDto {
-
-    private Long id;
+@AllArgsConstructor
+public class SkillCreateDto {
 
     private String name;
 
-    private Integer score;
+    private Long levelId;
 
 }

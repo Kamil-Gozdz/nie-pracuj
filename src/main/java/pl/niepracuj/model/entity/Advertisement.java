@@ -1,9 +1,7 @@
 package pl.niepracuj.model.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -14,6 +12,8 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class Advertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +31,17 @@ public class Advertisement {
 
     private String description;
 
+    @ManyToOne
+    private Technology technology;
+
+    @ManyToOne
+    private Company company;
+
+    @ManyToOne
+    private Seniority seniority;
+
+    @ManyToOne
+    private City city;
 
     @ManyToMany
     @JoinTable(
@@ -39,16 +50,4 @@ public class Advertisement {
             inverseJoinColumns = @JoinColumn(name = "adv_id")
     )
     private Set<Skill> skills;
-    @ManyToOne
-    private Company company;
-
-    @ManyToOne
-    private Technology technology;
-
-    @ManyToOne
-    private Seniority seniority;
-
-    @ManyToOne
-    private City city;
-
 }

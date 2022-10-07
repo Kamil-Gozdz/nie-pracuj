@@ -15,9 +15,7 @@ import java.util.stream.Collectors;
 @Transactional
 @RequiredArgsConstructor
 public class SeniorityServiceImpl implements SeniorityService{
-
     private final SeniorityRepository seniorityRepository;
-
     private final SeniorityMapper seniorityMapper;
 
     @Override

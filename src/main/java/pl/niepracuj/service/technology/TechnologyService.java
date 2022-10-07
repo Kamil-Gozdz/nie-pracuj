@@ -1,6 +1,5 @@
 package pl.niepracuj.service.technology;
 
-import pl.niepracuj.model.dto.CompanyDto;
 import pl.niepracuj.model.dto.TechnologyDto;
 
 import java.util.List;
