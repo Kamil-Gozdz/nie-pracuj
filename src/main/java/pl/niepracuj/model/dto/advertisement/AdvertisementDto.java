@@ -1,10 +1,10 @@
-package pl.niepracuj.model.dto;
+package pl.niepracuj.model.dto.advertisement;
 
 
 import lombok.*;
-import pl.niepracuj.model.entity.Company;
+import pl.niepracuj.model.dto.*;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 
@@ -19,9 +19,9 @@ public class AdvertisementDto {
 
     private String name;
 
-    private Instant publishDate;
+    private LocalDateTime publishDate;
 
-    private Instant expireDate;
+    private LocalDateTime expireDate;
 
     private Long salaryFrom;
 

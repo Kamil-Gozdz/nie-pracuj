@@ -2,8 +2,8 @@ package pl.niepracuj.model.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.niepracuj.model.dto.AdvertisementCreateDto;
-import pl.niepracuj.model.dto.AdvertisementDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
 import pl.niepracuj.model.dto.SkillDto;
 import pl.niepracuj.model.entity.Advertisement;
 import pl.niepracuj.model.entity.Skill;
