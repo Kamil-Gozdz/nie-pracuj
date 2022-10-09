@@ -1,6 +1,8 @@
 package pl.niepracuj.service.advertisement;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.niepracuj.exception.exceptions.EntityNotFoundException;
 import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
@@ -66,9 +68,10 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     @Override
-    public List<AdvertisementDto> getAdvertisementsByCriteria(AdvertisementSearchCriteriaDto criteriaDto) {
+    public List<AdvertisementDto> getAdvertisementsByCriteria(AdvertisementSearchCriteriaDto criteriaDto, Pageable pageable) {
         var specification = new AdvertisementSpecification(criteriaDto);
-        return advertisementRepository.findAll(specification).stream()
+        Page<Advertisement> advertisements = advertisementRepository.findAll(specification, pageable);
+        return advertisements.getContent().stream()
                 .map(advertisementMapper::toDto)
                 .collect(Collectors.toList());
     }

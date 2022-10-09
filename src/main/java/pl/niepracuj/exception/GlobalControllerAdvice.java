@@ -38,8 +38,7 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers,
                                                                   HttpStatus status, WebRequest request) {
         String message = nonNull(ex.getMessage()) ? ex.getMessage().split(":")[0] : ex.getMessage();
-        return new ResponseEntity<>(getBody(HttpStatus.BAD_REQUEST, message),
-                HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(getBody(HttpStatus.BAD_REQUEST, message), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)

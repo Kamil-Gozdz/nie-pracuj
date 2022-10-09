@@ -2,6 +2,7 @@ package pl.niepracuj.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
@@ -25,8 +26,9 @@ public class AdvertisementController {
     public AdvertisementDto createAdvertisement(@RequestBody AdvertisementCreateDto advertisementCreateDto){
         return advertisementService.createAdvertisement(advertisementCreateDto);
     }
-    @PostMapping("/search")
-    public List<AdvertisementDto> searchAdvertisementByCriteria(@RequestBody AdvertisementSearchCriteriaDto criteriaDto){
-        return advertisementService.getAdvertisementsByCriteria(criteriaDto);
+    @PostMapping("search")
+    public List<AdvertisementDto> searchAdvertisementByCriteria(@RequestBody AdvertisementSearchCriteriaDto criteriaDto,
+                                                                Pageable pageable){
+        return advertisementService.getAdvertisementsByCriteria(criteriaDto, pageable);
     }
 }
