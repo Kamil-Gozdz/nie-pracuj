@@ -1,9 +1,7 @@
 package pl.niepracuj.model.dto;
 
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
-import pl.niepracuj.model.advertisement.AdvertisementDto;
-import pl.niepracuj.model.entity.Advertisement;
+import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
 
 
 @Getter

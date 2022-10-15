@@ -4,10 +4,12 @@ package pl.niepracuj.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import pl.niepracuj.model.advertisement.AdvertisementCreateDto;
-import pl.niepracuj.model.advertisement.AdvertisementDto;
-import pl.niepracuj.model.advertisement.AdvertisementSearchCriteriaDto;
+import pl.niepracuj.model.dto.LogDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
 import pl.niepracuj.service.advertisement.AdvertisementService;
+import pl.niepracuj.service.log.LogService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,9 +21,14 @@ public class AdvertisementController {
 
     private final AdvertisementService advertisementService;
 
+    private final LogService logService;
+
     @GetMapping("all")
     public List<AdvertisementDto> getAdvertisements(){
-        return advertisementService.getAllAdvertisements();
+       var response =  advertisementService.getAllAdvertisements();
+        new LogDto();
+        logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
+       return response;
     }
     @GetMapping("all/company/{companyId}")
     public List<AdvertisementDto> getAdvertisementsForCompany(@PathVariable Long companyId){

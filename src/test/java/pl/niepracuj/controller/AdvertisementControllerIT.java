@@ -15,7 +15,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.web.servlet.MockMvc;
-import pl.niepracuj.model.advertisement.AdvertisementSearchCriteriaDto;
+import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
 import pl.niepracuj.model.enums.SeniorityEnum;
 import pl.niepracuj.model.enums.TechnologyEnum;
 

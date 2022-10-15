@@ -8,7 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.util.List;
 
-public class TestUtils {
+public class Utils {
 
     public static  <T> String toJson(T object) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
