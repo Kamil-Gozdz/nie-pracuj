@@ -5,9 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.niepracuj.exception.exceptions.EntityNotFoundException;
-import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
-import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
-import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
+import pl.niepracuj.model.advertisement.AdvertisementCreateDto;
+import pl.niepracuj.model.advertisement.AdvertisementDto;
+import pl.niepracuj.model.advertisement.AdvertisementSearchCriteriaDto;
 import pl.niepracuj.model.entity.Advertisement;
 import pl.niepracuj.model.entity.Skill;
 import pl.niepracuj.model.mapper.AdvertisementMapper;
@@ -39,6 +39,13 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     @Override
     public List<AdvertisementDto> getAllAdvertisements() {
         return advertisementRepository.findAll().stream()
+                .map(advertisementMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<AdvertisementDto> getAdvertisementsForCompany(Long companyId) {
+        return advertisementRepository.findByCompanyId(companyId).stream()
                 .map(advertisementMapper::toDto)
                 .collect(Collectors.toList());
     }

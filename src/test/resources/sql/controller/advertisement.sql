@@ -2,10 +2,12 @@ INSERT INTO companies (id, address, name, size, email) VALUES
     (1, 'Krucza 1 00-000 Miasto', 'Company Co', 250, 'company.co@company.com');
 
 INSERT INTO technologies (id, name) VALUES
-    (1, 'JAVA');
+    (1, 'JAVA'),
+    (2, 'HTML');
 
 INSERT INTO seniorities (id, name) VALUES
-    (1, 'JUNIOR');
+    (1, 'JUNIOR'),
+    (2, 'MID');
 
 INSERT INTO states (id, name) VALUES
                                   (2, 'DOLNOŚLĄSKIE'),
@@ -34,7 +36,9 @@ INSERT INTO levels (id, name, score) VALUES
                                          (2, 'JUNIOR', 2);
 
 INSERT INTO advertisements (id, description, expireDate, name, publishDate, salaryFrom, salaryTo, city_id, company_id, seniority_id, technology_id) VALUES
-    (1, 'Description', '2023-12-29T23:00:00', 'Ogłoszenie na java', '2022-12-29T23:00:00', 1000, 10000, 1, 1, 1, 1);
+    (1, 'Description', '2023-12-29T23:00:00', 'Ogłoszenie na java', '2022-12-29T23:00:00', 1000, 10000, 2, 1, 1, 1),
+    (2, 'Description', '2023-12-29T23:00:00', 'Ogłoszenie na java', '2022-12-29T23:00:00', 1000, 10000, 1, 1, 2, 1),
+    (3, 'Description', '2023-12-29T23:00:00', 'Ogłoszenie na html', '2022-12-29T23:00:00', 1000, 10000, 1, 1, 1, 2);
 
 INSERT INTO skills (id, name, level_id) VALUES
     (1, 'Programming', 1);

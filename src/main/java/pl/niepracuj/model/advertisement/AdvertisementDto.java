@@ -1,4 +1,4 @@
-package pl.niepracuj.model.dto.advertisement;
+package pl.niepracuj.model.advertisement;
 
 
 import lombok.*;
