@@ -7,7 +7,7 @@ import pl.niepracuj.model.dto.CompanyDto;
 import pl.niepracuj.service.company.CompanyService;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/company/")
 @RequiredArgsConstructor

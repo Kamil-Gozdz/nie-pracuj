@@ -2,13 +2,11 @@ package pl.niepracuj.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.niepracuj.model.dto.UserDto;
 import pl.niepracuj.service.user.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user/")
 @RequiredArgsConstructor

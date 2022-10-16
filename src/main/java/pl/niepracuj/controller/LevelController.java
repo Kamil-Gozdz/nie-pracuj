@@ -7,7 +7,7 @@ import pl.niepracuj.model.dto.LevelDto;
 import pl.niepracuj.service.level.LevelService;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/level/")
 @RequiredArgsConstructor

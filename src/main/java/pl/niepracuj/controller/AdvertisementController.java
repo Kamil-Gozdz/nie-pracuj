@@ -4,7 +4,6 @@ package pl.niepracuj.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-import pl.niepracuj.model.dto.LogDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
@@ -13,7 +12,7 @@ import pl.niepracuj.service.log.LogService;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/adv/")
 @RequiredArgsConstructor
@@ -26,8 +25,7 @@ public class AdvertisementController {
     @GetMapping("all")
     public List<AdvertisementDto> getAdvertisements(){
        var response =  advertisementService.getAllAdvertisements();
-        new LogDto();
-        logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
+       //logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
        return response;
     }
     @GetMapping("all/company/{companyId}")
