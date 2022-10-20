@@ -41,7 +41,9 @@ INSERT INTO advertisements (id, description, expireDate, name, publishDate, sala
     (3, 'Description', '2023-12-29T23:00:00', 'Ogłoszenie na html', '2022-12-29T23:00:00', 1000, 10000, 1, 1, 1, 2);
 
 INSERT INTO skills (id, name, level_id) VALUES
-    (1, 'Programming', 1);
+    (1, 'Programming', 1),
+    (2, 'Databases', 1);
+
 
 INSERT INTO adv_skills (skill_id, adv_id) VALUES
     (1, 1);

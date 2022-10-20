@@ -15,5 +15,7 @@ public interface AdvertisementService {
 
     AdvertisementDto createAdvertisement(AdvertisementCreateDto createDto);
 
+    void deleteAdvertisementById(Long id);
+
 
 }

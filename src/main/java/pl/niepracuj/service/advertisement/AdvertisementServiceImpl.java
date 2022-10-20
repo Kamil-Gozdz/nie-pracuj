@@ -55,13 +55,13 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         Advertisement advertisement = advertisementMapper.toNewEntity(createDto);
         advertisement.setPublishDate(LocalDateTime.now());
         advertisement.setCompany(companyRepository.findById(createDto.getCompanyId())
-                .orElseThrow(()-> new EntityNotFoundException("Company", createDto.getCompanyId())));
+                .orElseThrow(() -> new EntityNotFoundException("Company", createDto.getCompanyId())));
         advertisement.setTechnology(technologyRepository.findById(createDto.getTechnologyId())
-                .orElseThrow(()-> new EntityNotFoundException("Technology", createDto.getTechnologyId())));
+                .orElseThrow(() -> new EntityNotFoundException("Technology", createDto.getTechnologyId())));
         advertisement.setSeniority(seniorityRepository.findById(createDto.getSeniorityId())
-                .orElseThrow(()-> new EntityNotFoundException("Seniority", createDto.getSeniorityId())));
+                .orElseThrow(() -> new EntityNotFoundException("Seniority", createDto.getSeniorityId())));
         advertisement.setCity(cityRepository.findById(createDto.getCityId())
-                .orElseThrow(()-> new EntityNotFoundException("City", createDto.getCityId())));
+                .orElseThrow(() -> new EntityNotFoundException("City", createDto.getCityId())));
 
         List<Skill> skills = createDto.getSkills().stream()
                 .map(skillCreateDto -> {
@@ -81,5 +81,10 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         return advertisements.getContent().stream()
                 .map(advertisementMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteAdvertisementById(Long id) {
+        advertisementRepository.deleteById(id);
     }
 }

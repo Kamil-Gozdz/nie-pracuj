@@ -5,10 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
+@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -16,7 +18,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/adv/create", "/company/create",
-                        "/level/create", "/senoiority/create", "/technology/create").hasAnyAuthority("ROLE_ADMIN")
+                        "/level/create", "/seniority/create", "/technology/create", "/user/login")
+                .hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers(HttpMethod.GET,"/**").permitAll()
                 .anyRequest().permitAll()
                 .and()

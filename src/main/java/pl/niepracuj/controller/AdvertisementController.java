@@ -8,10 +8,10 @@ import pl.niepracuj.model.dto.advertisement.AdvertisementCreateDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
 import pl.niepracuj.service.advertisement.AdvertisementService;
-import pl.niepracuj.service.log.LogService;
 
 import javax.validation.Valid;
 import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/adv/")
@@ -20,25 +20,30 @@ public class AdvertisementController {
 
     private final AdvertisementService advertisementService;
 
-    private final LogService logService;
 
     @GetMapping("all")
-    public List<AdvertisementDto> getAdvertisements(){
-       var response =  advertisementService.getAllAdvertisements();
-       //logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
-       return response;
+    public List<AdvertisementDto> getAdvertisements() {
+        return advertisementService.getAllAdvertisements();
     }
+
     @GetMapping("all/company/{companyId}")
-    public List<AdvertisementDto> getAdvertisementsForCompany(@PathVariable Long companyId){
+    public List<AdvertisementDto> getAdvertisementsForCompany(@PathVariable Long companyId) {
         return advertisementService.getAdvertisementsForCompany(companyId);
     }
+
     @PostMapping("create")
-    public AdvertisementDto createAdvertisement(@RequestBody @Valid AdvertisementCreateDto advertisementCreateDto){
+    public AdvertisementDto createAdvertisement(@RequestBody @Valid AdvertisementCreateDto advertisementCreateDto) {
         return advertisementService.createAdvertisement(advertisementCreateDto);
     }
+
     @PostMapping("search")
     public List<AdvertisementDto> searchAdvertisementByCriteria(@RequestBody AdvertisementSearchCriteriaDto criteriaDto,
-                                                                Pageable pageable){
+                                                                Pageable pageable) {
         return advertisementService.getAdvertisementsByCriteria(criteriaDto, pageable);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public void deleteAdvertisementById(@PathVariable Long id) {
+        advertisementService.deleteAdvertisementById(id);
     }
 }

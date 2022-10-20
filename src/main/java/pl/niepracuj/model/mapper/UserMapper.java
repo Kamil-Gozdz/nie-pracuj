@@ -2,9 +2,7 @@ package pl.niepracuj.model.mapper;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import pl.niepracuj.model.dto.CityDto;
 import pl.niepracuj.model.dto.UserDto;
-import pl.niepracuj.model.entity.City;
 import pl.niepracuj.model.entity.User;
 
 import static java.util.Objects.nonNull;
