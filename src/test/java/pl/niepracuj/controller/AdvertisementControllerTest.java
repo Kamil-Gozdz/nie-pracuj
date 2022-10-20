@@ -14,14 +14,10 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.web.servlet.MockMvc;
-import pl.niepracuj.model.dto.*;
-import pl.niepracuj.model.dto.advertisement.AdvertisementDto;
 import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
 import pl.niepracuj.model.enums.SeniorityEnum;
 import pl.niepracuj.model.enums.TechnologyEnum;
 
-import java.time.LocalDateTime;
-import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -55,45 +51,6 @@ public class AdvertisementControllerTest {
         mockMvc.perform(get("/adv/all/company/{companyId}", "1")).andExpect(status().isOk())
                 .andExpect(jsonPath("$.size()", equalTo(3)));
     }
-
-    @Test
-    @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
-    public void shouldCreateNewAdvertisement() throws Exception {
-        //given
-        CompanyDto companyDto = new CompanyDto(1L,"Company Co", "Krucza 1 00-000 Miasto", "company.co@company.com", 250);
-        SeniorityDto seniorityDto = new SeniorityDto(1L,SeniorityEnum.JUNIOR);
-        TechnologyDto technologyDto = new TechnologyDto(1L,TechnologyEnum.JAVA);
-        StateDto stateDto = new StateDto(2L, "DOLNOŚLĄSKIE");
-        CityDto cityDto = new CityDto(1L,"Bolesławiec", stateDto);
-        LevelDto levelDto = new LevelDto(1L,"INTERN", 1);
-
-        Set<SkillDto> skills = Set.of(SkillDto.builder()
-                        .level(levelDto)
-                .name("Programming")
-                .build());
-
-        var advertisementDto = AdvertisementDto.builder()
-                .id(4L)
-                .name("Potrzebny Programista JAVA")
-                .description("Opis")
-                .company(companyDto)
-                .expireDate(LocalDateTime.of(2022, 12, 29, 23, 0, 0))
-                .salaryFrom(1000L)
-                .salaryTo(2000L)
-                .seniority(seniorityDto)
-                .technology(technologyDto)
-                .city(cityDto)
-                .skills(skills)
-                .build();
-
-        var advertisementCreateDtoJson = toJson(advertisementDto);
-        //when && then
-        mockMvc.perform(post("/adv/create").content(advertisementCreateDtoJson)
-                        .contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk()).andExpect(jsonPath("$.description", equalTo("Opis")));
-    }
-
-
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
     public void whenGetAdvertisementByCriteria_thenOkResponse() throws Exception {

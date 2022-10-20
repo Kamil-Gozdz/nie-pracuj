@@ -2,7 +2,6 @@ package pl.niepracuj.model.dto;
 
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.niepracuj.model.entity.Advertisement;
 
 
 @Getter

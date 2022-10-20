@@ -11,6 +11,8 @@ import pl.niepracuj.model.entity.Application;
 @RequiredArgsConstructor
 public class ApplicationMapper {
 
+    private final AdvertisementMapper advertisementMapper;
+
     public ApplicationDto toDto(Application application){
         return ApplicationDto.builder()
                 .id(application.getId())
@@ -19,6 +21,7 @@ public class ApplicationMapper {
                 .email(application.getEmail())
                 .introduction(application.getIntroduction())
                 .path(application.getPath())
+                .advertisement(advertisementMapper.toDto(application.getAdvertisement()))
                 .build();
     }
     public Application toNewEntity(ApplicationCreateDto createDto){
