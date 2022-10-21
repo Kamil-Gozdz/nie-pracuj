@@ -8,4 +8,6 @@ import java.io.IOException;
 public interface ApplicationService {
 
     ApplicationDto createApplication(ApplicationCreateDto createDto) throws IOException;
+
+    void deleteApplicationById(Long id);
 }

@@ -29,4 +29,8 @@ public class CompanyController {
         logService.sendLog(LogDto.getLogDto("Dodano nową firmę"));
         return response;
     }
+    @DeleteMapping("delete/{id}")
+    public void deleteAdvertisementById(@PathVariable Long id) {
+        companyService.deleteCompanyById(id);
+    }
 }

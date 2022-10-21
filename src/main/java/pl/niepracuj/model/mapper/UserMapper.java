@@ -11,12 +11,20 @@ import static java.util.Objects.nonNull;
 @RequiredArgsConstructor
 public class UserMapper {
 
+    CompanyMapper companyMapper;
+
 
     public UserDto toDto(User user) {
         return UserDto.builder()
                 .id(user.getId())
                 .username(user.getUsername())
                 .companyId(getCompany(user))
+                .build();
+    }
+
+    public User toNewEntity (UserDto userDto){
+        return User.builder()
+                .username(userDto.getUsername())
                 .build();
     }
 

@@ -2,10 +2,7 @@ package pl.niepracuj.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.niepracuj.model.dto.ApplicationCreateDto;
 import pl.niepracuj.model.dto.ApplicationDto;
 import pl.niepracuj.service.application.ApplicationService;
@@ -23,5 +20,8 @@ public class ApplicationController {
     public ApplicationDto createApplication(ApplicationCreateDto createDto) throws IOException {
         return applicationService.createApplication(createDto);
     }
-
+    @DeleteMapping("delete/{id}")
+    public void deleteAdvertisementById(@PathVariable Long id) {
+        applicationService.deleteApplicationById(id);
+    }
 }

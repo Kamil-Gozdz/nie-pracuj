@@ -33,4 +33,9 @@ public class ApplicationServiceImpl implements ApplicationService{
                 .orElseThrow(()->new EntityNotFoundException("Advertisement",createDto.getAdvertisementId())));
         return applicationMapper.toDto(applicationRepository.save(application));
     }
+
+    @Override
+    public void deleteApplicationById(Long id) {
+        applicationRepository.deleteById(id);
+    }
 }

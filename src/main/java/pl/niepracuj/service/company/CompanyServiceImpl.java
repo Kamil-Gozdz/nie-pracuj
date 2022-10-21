@@ -29,4 +29,9 @@ public class CompanyServiceImpl implements CompanyService{
     public CompanyDto createCompany(CompanyDto companyDto) {
         return companyMapper.toDto(companyRepository.save(companyMapper.toNewEntity(companyDto)));
     }
+
+    @Override
+    public void deleteCompanyById(Long id) {
+        companyRepository.deleteById(id);
+    }
 }

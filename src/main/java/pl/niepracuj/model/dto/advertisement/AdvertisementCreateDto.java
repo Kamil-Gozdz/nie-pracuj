@@ -21,7 +21,6 @@ public class AdvertisementCreateDto {
     @NotBlank(message = "Name is mandatory")
     private String name;
     @Future(message = "Expire date can't be less than current date")
-//  TODO  @Pattern() - zamienić na to
     @DateTimeFormat(pattern = "yyyy-MM-ddThh:mm:ss")
     private LocalDateTime expireDate;
     @NotNull(message = "Salary from is mandatory")

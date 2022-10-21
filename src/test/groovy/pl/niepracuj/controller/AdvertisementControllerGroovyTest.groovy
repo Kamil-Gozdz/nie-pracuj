@@ -88,7 +88,7 @@ class AdvertisementControllerGroovyTest extends Specification {
 
         where:
         technology          | city           | seniority | result
-        TechnologyEnum.JAVA | null           | null      | 1144
-        null                | "Nowogrodziec" | null      | 619
+        TechnologyEnum.JAVA | null           | null      | 2
+        null                | "Nowogrodziec" | null      | 1
     }
 }
